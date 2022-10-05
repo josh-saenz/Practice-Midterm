@@ -12,3 +12,39 @@ change the status attribute to False.
 2) a Booking class that has attributes for customer name and
 seat number. Create accessor methods for both attributes.'''
         
+class Play: 
+    def __init__(self, id, name, number_of_seats, date, status):
+        self.__id =id
+        self.__name = name
+        self.__number_of_seats=number_of_seats
+        self.__date = date
+        self.__status = True
+
+    def get_name(self):
+        return self.__name
+    
+    def get_number_of_seats(self):
+        return self.__number_of_seats
+
+    def get_status(self):
+        return self.__status
+    
+    def get_id(self):
+        return self.__id
+    
+    def seats_left(self):
+        self.__number_of_seats = self.__number_of_seats - 1
+
+    def set_status(self):
+        self.__status = False 
+
+class Booking: 
+    def __init__(self, customername, seatnumber):
+        self.__customername = customername
+        self.__seatnumber = seatnumber
+
+    def get_customername(self):
+        return self.__customername
+
+    def get_seatnumber(self):
+        return self.__seatnumber

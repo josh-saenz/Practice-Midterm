@@ -1,4 +1,4 @@
-import practiceClassKEY as p
+import practiceClass as p
 import csv
 
 
@@ -46,11 +46,25 @@ error message as shown in output.JPG'''
 
 
 #open the csv file in read mode
+infile = open('bookings.csv', 'r')
+
 
 
 #create a csv object from the file object from the step above
+reader = csv.reader(infile, delimiter= ',')
 
+next(reader)
 
 
 # use a for loop to iterate through each record in the bookings file
+play = p.Play(shows['play3']['id'],shows['play3']['name'], shows['play3']['capacity'], shows['play3']['event_date'], True)
 
+for i in reader:
+    if int(i[0]) == play.get_id():
+        play.seats_left()
+        p.Booking(i[1],i[2])
+        if play.get_number_of_seats()<0:
+            print('*************ERROR****************')
+            print(f'Guest Name: {i[1]}')
+            print(f'Sorry, show: ' + play.get_name()+ ' is sold out')
+            print('**********************************')
