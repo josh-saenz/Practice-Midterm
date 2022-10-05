@@ -57,7 +57,11 @@ next(reader)
 
 
 # use a for loop to iterate through each record in the bookings file
-play = p.Play(shows['play3']['id'],shows['play3']['name'], shows['play3']['capacity'], shows['play3']['event_date'], True)
+
+for key in shows:
+    if shows[key]['id'] == 9587:
+        play = p.Play(shows['play3']['id'],shows['play3']['name'], shows['play3']['capacity'], shows['play3']['event_date'], True)
+
 
 for i in reader:
     if int(i[0]) == play.get_id():
